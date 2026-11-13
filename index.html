@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simmering Upholstery | Custom Upholstery, Cleaning &amp; Repairs in Calgary since 1934</title>
+<meta name="description" content="Family owned and operated since 1934. Reupholstery, upholstery cleaning, furniture repair and Scotchgard in Calgary. Free pick-up and delivery for large items within city limits.">
+<meta name="theme-color" content="#16140f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,400;0,600;0,700;1,500&family=Figtree:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#16140f;
+  --ink-2:#22201a;
+  --ink-3:#3a372f;
+  --gold:#fbc801;
+  --gold-deep:#d9a900;
+  --paper:#f3ede1;
+  --paper-2:#e9e1d0;
+  --linen:#fbf8f2;
+  --muted:#6b665a;
+  --line:rgba(22,20,15,.14);
+  --slab:'Zilla Slab',Georgia,serif;
+  --sans:'Figtree',system-ui,sans-serif;
+  --mono:'Courier Prime',ui-monospace,monospace;
+  --wrap:1240px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px}
+.tag{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+h1,h2,h3{font-family:var(--slab);font-weight:700;line-height:1.05;letter-spacing:-.01em}
+h2{font-size:clamp(36px,4.6vw,58px)}
+.stitch{border:0;height:0;border-top:2px dashed currentColor;opacity:.35}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;transition:.25s;cursor:pointer;border:0;font-family:var(--sans)}
+.btn-gold{background:var(--gold);color:var(--ink)}
+.btn-gold:hover{background:#fff}
+.btn-line{border:1.5px solid rgba(255,255,255,.45);color:#fff}
+.btn-line:hover{border-color:var(--gold);color:var(--gold)}
+.btn-ink{background:var(--ink);color:var(--paper)}
+.btn-ink:hover{background:var(--gold);color:var(--ink)}
+.btn svg{width:16px;height:16px}
+
+/* top strip */
+.topbar{background:var(--gold);color:var(--ink);font-size:14px;font-weight:600}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:40px;gap:20px}
+.topbar .l,.topbar .r{display:flex;gap:26px;align-items:center}
+.topbar a:hover{text-decoration:underline}
+.topbar svg{width:15px;height:15px;vertical-align:-2px;margin-right:6px}
+
+/* header */
+header{background:var(--ink);position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(255,255,255,.06)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:86px}
+.logo img{width:150px;height:auto}
+nav ul{display:flex;gap:34px;list-style:none}
+nav a{color:#d9d3c4;font-size:15px;font-weight:500;position:relative;padding:6px 0}
+nav a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:0;border-bottom:2px dashed var(--gold);transform:scaleX(0);transform-origin:left;transition:.3s}
+nav a:hover{color:#fff}nav a:hover::after,nav a.on::after{transform:scaleX(1)}
+nav a.on{color:#fff}
+.burger{display:none;background:none;border:0;color:#fff;cursor:pointer}
+.burger svg{width:28px;height:28px}
+
+/* hero */
+.hero{position:relative;background:var(--ink);color:#fff;overflow:hidden}
+.hero-img{position:absolute;inset:0;background:url(images/hero-bg.jpg) 70% center/cover no-repeat}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(22,20,15,.96) 0%,rgba(22,20,15,.86) 34%,rgba(22,20,15,.25) 64%,rgba(22,20,15,0) 100%)}
+.hero .wrap{position:relative;z-index:2;min-height:660px;display:flex;flex-direction:column;justify-content:center;padding-top:70px;padding-bottom:120px}
+.hero .tag{color:var(--gold);display:flex;align-items:center;gap:14px}
+.hero .tag::before{content:"";width:38px;border-top:2px dashed var(--gold)}
+.hero h1{font-size:clamp(46px,6.4vw,92px);max-width:640px;margin:22px 0 18px}
+.hero h1 em{font-style:italic;font-weight:500;color:var(--gold)}
+.hero p.lead{font-size:20px;color:#e7e1d3;max-width:470px}
+.hero .ctas{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap}
+.since-stamp{position:absolute;z-index:2;right:5%;bottom:120px;width:150px;height:150px;border-radius:50%;border:2px dashed var(--gold);display:grid;place-items:center;text-align:center;color:var(--gold);transform:rotate(-12deg);background:rgba(22,20,15,.55);backdrop-filter:blur(2px)}
+.since-stamp b{display:block;font-family:var(--slab);font-size:44px;line-height:1}
+.since-stamp span{font-family:var(--mono);font-size:11px;letter-spacing:.2em}
+
+/* ledger strip */
+.ledger{position:relative;z-index:5;margin-top:-72px}
+.ledger-in{background:var(--linen);display:grid;grid-template-columns:repeat(4,1fr);box-shadow:0 30px 60px -30px rgba(0,0,0,.45)}
+.ledger-in div{padding:30px 28px;border-right:2px dashed var(--line)}
+.ledger-in div:last-child{border:0}
+.ledger-in b{font-family:var(--slab);font-size:30px;display:block;line-height:1.1}
+.ledger-in span{font-size:14.5px;color:var(--muted);display:block;margin-top:6px}
+.ledger-in div:first-child{background:var(--gold)}
+.ledger-in div:first-child span{color:var(--ink)}
+
+/* about */
+.about{padding:130px 0 120px}
+.about .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:80px;align-items:center}
+.about-photo{position:relative}
+.about-photo .frame{position:relative;padding:18px;border:2px dashed var(--ink-3)}
+.about-photo img{width:100%;height:560px;object-fit:cover}
+.about-photo .swatch{position:absolute;left:-26px;bottom:44px;background:var(--ink);color:var(--paper);padding:20px 24px 20px 30px;clip-path:polygon(18px 0,100% 0,100% 100%,18px 100%,0 50%)}
+.about-photo .swatch b{font-family:var(--slab);font-size:40px;color:var(--gold);display:block;line-height:1}
+.about-photo .swatch span{font-size:13px;letter-spacing:.06em}
+.about-text .tag{color:var(--muted)}
+.about-text h2{margin:16px 0 28px}
+.about-text h2 span{background:linear-gradient(transparent 62%,var(--gold) 62%,var(--gold) 92%,transparent 92%)}
+.about-text p{color:#3d3a32;margin-bottom:18px}
+.about-text p.first::first-letter{font-family:var(--slab);float:left;font-size:76px;line-height:.82;padding:6px 12px 0 0;color:var(--ink)}
+.about-text .sign{margin-top:30px;padding-top:24px;border-top:2px dashed var(--line);display:flex;gap:40px}
+.about-text .sign div b{font-family:var(--slab);font-size:20px;display:block}
+.about-text .sign div span{font-size:14px;color:var(--muted)}
+
+/* services */
+.services{background:var(--ink);color:var(--paper);padding:120px 0}
+.sv-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:60px}
+.sv-head .tag{color:var(--gold)}
+.sv-head h2{margin-top:14px;max-width:560px}
+.sv-head p{max-width:380px;color:#b9b3a4}
+.sv-list{border-top:2px dashed rgba(255,255,255,.18)}
+.sv{display:grid;grid-template-columns:90px 1fr 1.2fr 300px;gap:40px;align-items:center;padding:34px 0;border-bottom:2px dashed rgba(255,255,255,.18);transition:background .3s}
+.sv:hover{background:rgba(251,200,1,.04)}
+.sv .num{font-family:var(--mono);color:var(--gold);font-size:15px}
+.sv h3{font-size:clamp(30px,3.2vw,44px)}
+.sv p{color:#c4bfb0;font-size:16px}
+.sv .pic{height:180px;overflow:hidden;position:relative}
+.sv .pic img{width:100%;height:100%;object-fit:cover;filter:grayscale(.35);transition:.6s}
+.sv:hover .pic img{filter:none;transform:scale(1.05)}
+.sv .pic::after{content:"";position:absolute;inset:8px;border:1.5px dashed rgba(251,200,1,.55);pointer-events:none}
+
+/* portfolio */
+.work{padding:120px 0 110px;background:var(--paper)}
+.work-head{display:grid;grid-template-columns:1fr auto;align-items:end;gap:30px;margin-bottom:46px}
+.work-head .tag{color:var(--muted)}
+.work-head h2{margin-top:14px}
+.gallery{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:120px;gap:14px}
+.g{position:relative;overflow:hidden;cursor:zoom-in;background:var(--paper-2)}
+.g img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.g:hover img{transform:scale(1.06)}
+.g figcaption{position:absolute;left:12px;bottom:12px;background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:12px;letter-spacing:.1em;padding:6px 10px 6px 18px;clip-path:polygon(10px 0,100% 0,100% 100%,10px 100%,0 50%);opacity:0;transform:translateY(8px);transition:.3s}
+.g:hover figcaption{opacity:1;transform:none}
+.g1{grid-column:span 7;grid-row:span 4}
+.g2{grid-column:span 5;grid-row:span 2}
+.g3{grid-column:span 5;grid-row:span 2}
+.g4,.g5,.g6,.g7{grid-column:span 3;grid-row:span 3}
+.g8{grid-column:span 5;grid-row:span 3}
+.g9{grid-column:span 7;grid-row:span 3}
+
+/* lightbox */
+.lb{position:fixed;inset:0;background:rgba(15,13,10,.94);z-index:100;display:none;align-items:center;justify-content:center;padding:40px}
+.lb.open{display:flex}
+.lb img{max-height:86vh;max-width:90vw;border:10px solid var(--linen)}
+.lb button{position:absolute;background:none;border:0;color:#fff;cursor:pointer;font-size:40px;line-height:1;padding:14px}
+.lb .x{top:16px;right:22px}.lb .pv{left:12px;top:50%;transform:translateY(-50%)}.lb .nx{right:12px;top:50%;transform:translateY(-50%)}
+.lb button:hover{color:var(--gold)}
+
+/* why */
+.why{background:var(--gold);padding:100px 0;position:relative}
+.why .wrap{display:grid;grid-template-columns:.8fr 2.2fr;gap:60px}
+.why h2{font-size:clamp(34px,4vw,52px)}
+.why .tag{margin-bottom:14px;display:block}
+.why-cols{display:grid;grid-template-columns:repeat(3,1fr)}
+.why-cols div{padding:0 32px;border-left:2px dashed rgba(22,20,15,.35)}
+.why-cols .n{font-family:var(--slab);font-size:64px;line-height:1;color:var(--ink);opacity:.18;font-weight:700}
+.why-cols h3{font-size:26px;margin:14px 0 12px}
+.why-cols p{font-size:15.5px;color:#2b2716}
+
+/* booking */
+.book{padding:120px 0;background:var(--linen)}
+.book .grid{display:grid;grid-template-columns:1fr 1.1fr;gap:70px;align-items:start}
+.book .tag{color:var(--muted)}
+.book h2{margin:14px 0 22px}
+.book .intro{color:#4a463c;max-width:460px}
+.steps{margin-top:44px;position:relative}
+.steps::before{content:"";position:absolute;left:27px;top:20px;bottom:20px;border-left:2px dashed var(--ink-3);opacity:.4}
+.step{display:grid;grid-template-columns:56px 1fr;gap:22px;padding:16px 0;position:relative}
+.step .dot{width:56px;height:56px;border-radius:50%;background:var(--ink);color:var(--gold);display:grid;place-items:center;font-family:var(--slab);font-size:24px;font-weight:700}
+.step h3{font-size:24px;margin:4px 0 6px}
+.step p{font-size:15.5px;color:#4a463c}
+.step a{border-bottom:1.5px solid var(--gold-deep);font-weight:600}
+.ticket{background:#fff;position:relative;padding:44px 42px 40px;box-shadow:0 30px 70px -40px rgba(0,0,0,.35)}
+.ticket::before{content:"";position:absolute;top:0;left:0;right:0;height:10px;background:repeating-linear-gradient(90deg,var(--ink) 0 22px,var(--gold) 22px 44px)}
+.ticket .th{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px dashed var(--line);padding-bottom:18px;margin-bottom:26px}
+.ticket .th h3{font-size:30px}
+.ticket .th span{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.1em}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fgrid .full{grid-column:1/-1}
+label{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+input,select,textarea{width:100%;border:0;border-bottom:1.5px solid #cfc7b5;background:var(--linen);padding:13px 14px;font:inherit;font-size:15.5px;color:var(--ink);border-radius:0;outline:none;transition:.2s}
+input:focus,select:focus,textarea:focus{border-bottom-color:var(--ink);background:#fff8dc}
+textarea{min-height:110px;resize:vertical}
+.upload{border:2px dashed #cfc7b5;padding:18px;text-align:center;font-size:14.5px;color:var(--muted);cursor:pointer;background:var(--linen);transition:.2s}
+.upload:hover{border-color:var(--ink);color:var(--ink)}
+.upload input{display:none}
+.ticket .btn{width:100%;justify-content:center;margin-top:24px;padding:18px}
+.ticket small{display:block;text-align:center;color:var(--muted);font-size:13px;margin-top:12px}
+
+/* testimonials */
+.voices{background:var(--ink-2);color:var(--paper);padding:120px 0;position:relative;overflow:hidden}
+.voices .tag{color:var(--gold)}
+.voices .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:70px;align-items:center}
+.quote-big{position:relative}
+.quote-big .mark{font-family:var(--slab);font-size:170px;line-height:.6;color:var(--gold);height:70px;display:block}
+.quote-big blockquote{font-family:var(--slab);font-size:clamp(28px,3.2vw,42px);line-height:1.22;font-weight:500;margin:20px 0 30px;min-height:160px;transition:opacity .35s}
+.quote-big .who{display:flex;align-items:center;gap:16px;transition:opacity .35s}
+.quote-big .who img{width:56px;height:56px;border-radius:50%;border:2px solid var(--gold)}
+.quote-big .who b{display:block;font-size:17px}
+.quote-big .who span{font-size:14px;color:#a9a393}
+.people{list-style:none;border-top:2px dashed rgba(255,255,255,.16)}
+.people li{display:flex;align-items:center;gap:16px;padding:18px 10px;border-bottom:2px dashed rgba(255,255,255,.16);cursor:pointer;transition:.25s}
+.people li img{width:44px;height:44px;border-radius:50%;filter:grayscale(1);opacity:.7;transition:.25s}
+.people li b{font-weight:600;font-size:16px;display:block}
+.people li span{font-size:13.5px;color:#9a9484}
+.people li:hover,.people li.on{background:rgba(251,200,1,.07)}
+.people li.on img{filter:none;opacity:1}
+.people li.on b{color:var(--gold)}
+.people li .ar{margin-left:auto;color:var(--gold);opacity:0;transition:.25s}
+.people li.on .ar{opacity:1}
+
+/* faq */
+.faq{padding:120px 0;background:var(--paper)}
+.faq .wrap{display:grid;grid-template-columns:.9fr 1.4fr;gap:80px}
+.faq .tag{color:var(--muted)}
+.faq h2{margin:14px 0 20px}
+.faq .side p{color:#4a463c;margin-bottom:26px}
+.faq-photo{margin-top:34px;height:260px;overflow:hidden}
+.faq-photo img{width:100%;height:100%;object-fit:cover}
+.qa{border-bottom:2px dashed var(--line)}
+.qa:first-child{border-top:2px dashed var(--line)}
+.qa button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;background:none;border:0;text-align:left;padding:26px 0;cursor:pointer;font-family:var(--slab);font-size:23px;font-weight:600;color:var(--ink)}
+.qa button i{flex:none;width:36px;height:36px;border-radius:50%;border:1.5px solid var(--ink);display:grid;place-items:center;font-style:normal;font-family:var(--sans);font-size:20px;transition:.3s}
+.qa.open button i{background:var(--gold);border-color:var(--gold);transform:rotate(45deg)}
+.qa .a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.qa .a p{padding:0 60px 26px 0;color:#4a463c}
+
+/* visit */
+.visit{background:var(--ink);color:var(--paper)}
+.visit .grid{display:grid;grid-template-columns:1fr 1.3fr}
+.visit-info{padding:90px 60px 90px 0}
+.visit-info .tag{color:var(--gold)}
+.visit-info h2{margin:14px 0 36px}
+.vrow{display:grid;grid-template-columns:130px 1fr;padding:18px 0;border-top:2px dashed rgba(255,255,255,.15)}
+.vrow:last-of-type{border-bottom:2px dashed rgba(255,255,255,.15)}
+.vrow span{font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:#958f7f;padding-top:4px}
+.vrow a,.vrow p{font-size:18px}
+.vrow a:hover{color:var(--gold)}
+.visit-info .btn{margin-top:34px}
+.map{position:relative;min-height:520px;background:#2a2822}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.85) contrast(1.05)}
+
+/* footer */
+footer{background:#0e0d0a;color:#a9a393;padding:80px 0 0}
+.ft{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:50px;padding-bottom:60px}
+.ft img{width:150px;margin-bottom:20px}
+.ft p{font-size:15px;max-width:300px}
+.ft h4{font-family:var(--mono);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;font-weight:700}
+.ft ul{list-style:none}
+.ft li{margin-bottom:11px;font-size:15px}
+.ft a:hover{color:#fff}
+.social{display:flex;gap:10px;margin-top:22px}
+.social a{width:40px;height:40px;border:1.5px solid #3a372f;border-radius:50%;display:grid;place-items:center;transition:.25s}
+.social a:hover{border-color:var(--gold);color:var(--gold)}
+.social svg{width:17px;height:17px}
+.fb{border-top:2px dashed #2a2822;padding:24px 0;display:flex;justify-content:space-between;font-size:14px;gap:20px;flex-wrap:wrap}
+.fb a{color:var(--gold)}
+.fb a:hover{text-decoration:underline}
+
+/* mobile bar */
+.mbar{display:none}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:1100px){
+  nav ul{gap:22px}
+  .sv{grid-template-columns:60px 1fr 1.2fr;}
+  .sv .pic{display:none}
+  .why .wrap{grid-template-columns:1fr}
+}
+@media(max-width:900px){
+  .topbar .r{display:none}
+  nav{position:fixed;top:126px;left:0;right:0;background:var(--ink);max-height:0;overflow:hidden;transition:max-height .35s}
+  nav.open{max-height:400px}
+  nav ul{flex-direction:column;gap:0;padding:10px 28px 24px}
+  nav li{border-bottom:1px dashed rgba(255,255,255,.12)}
+  nav a{display:block;padding:14px 0}
+  .burger{display:block}
+  header .hd-cta{display:none}
+  .hero .wrap{min-height:600px}
+  .hero::before{background:linear-gradient(180deg,rgba(22,20,15,.55) 0%,rgba(22,20,15,.92) 60%)}
+  .since-stamp{display:none}
+  .ledger-in{grid-template-columns:1fr 1fr}
+  .ledger-in div:nth-child(2){border-right:0}
+  .ledger-in div{border-bottom:2px dashed var(--line)}
+  .about .grid,.book .grid,.voices .wrap,.faq .wrap,.visit .grid{grid-template-columns:1fr;gap:50px}
+  .about-photo .swatch{left:0}
+  .about-photo img{height:440px}
+  .sv-head{flex-direction:column;align-items:flex-start}
+  .sv{grid-template-columns:1fr;gap:10px}
+  .why-cols{grid-template-columns:1fr;gap:34px}
+  .why-cols div{border-left:0;border-top:2px dashed rgba(22,20,15,.35);padding:26px 0 0}
+  .gallery{grid-template-columns:1fr 1fr;grid-auto-rows:170px}
+  .g{grid-column:span 1!important;grid-row:span 1!important}
+  .g1,.g9{grid-column:span 2!important;grid-row:span 2!important}
+  .work-head{grid-template-columns:1fr}
+  .visit-info{padding:80px 0 40px}
+  .map{min-height:360px;margin:0 0 40px}
+  .visit .grid>*{min-width:0}
+  .ft{grid-template-columns:1fr 1fr}
+  .mbar{display:grid;grid-template-columns:1fr 1fr;position:fixed;bottom:0;left:0;right:0;z-index:60}
+  .mbar a{padding:16px;text-align:center;font-weight:700;font-size:15px}
+  .mbar a:first-child{background:var(--ink);color:var(--gold)}
+  .mbar a:last-child{background:var(--gold);color:var(--ink)}
+  footer{padding-bottom:56px}
+}
+@media(max-width:560px){
+  body{font-size:16px}
+  .wrap{padding:0 20px}
+  .fgrid{grid-template-columns:1fr}
+  .ticket{padding:38px 22px 30px}
+  .ft{grid-template-columns:1fr}
+  .qa button{font-size:20px}
+  .qa .a p{padding-right:0}
+  .ledger-in b{font-size:24px}
+  .ledger-in div{padding:22px 18px}
+  .vrow{grid-template-columns:1fr;gap:4px}
+  .topbar{font-size:12.5px}.topbar .l{gap:14px}.topbar svg{display:none}
+  .gallery .g9{grid-column:span 2!important}
+  .gallery .g8{grid-column:span 2!important;grid-row:span 2!important}
+  .vrow a,.vrow p{font-size:16px;overflow-wrap:anywhere}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="l">
+      <a href="tel:+14032444656"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>+1 (403) 244-4656</a>
+      <a href="mailto:info@simmeringupholstery.ca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>info@simmeringupholstery.ca</a>
+    </div>
+    <div class="r">
+      <span>1902 10 Ave SW, Calgary</span>
+      <a href="https://www.facebook.com/Simmering-Upholstery-101963151974931/" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.instagram.com/simmering_upholstery/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</div>
+
+<header>
+  <div class="wrap">
+    <a href="#home" class="logo"><img src="images/logo2.png" alt="Simmering Upholstery"></a>
+    <nav id="nav">
+      <ul>
+        <li><a href="#home" class="on">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+    <a href="#quote" class="btn btn-gold hd-cta">Call or E-mail for a quote!</a>
+    <button class="burger" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-img" role="img" aria-label="Vintage Simmering Upholstery truck outside the shop"></div>
+  <div class="wrap">
+    <span class="tag">Custom Upholstery · Cleaning &amp; Repairs</span>
+    <h1>Welcome to <em>Simmering</em> Upholstery</h1>
+    <p class="lead">Serving Calgary since 1934. Restoring and reupholstering furniture to its original beauty, one piece at a time.</p>
+    <div class="ctas">
+      <a href="#services" class="btn btn-gold">Our Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="tel:+14032444656" class="btn btn-line">Call (403) 244-4656</a>
+    </div>
+  </div>
+  <div class="since-stamp"><div><span>EST.</span><b>1934</b><span>CALGARY</span></div></div>
+</section>
+
+<div class="ledger">
+  <div class="wrap">
+    <div class="ledger-in rv">
+      <div><b>Since 1934</b><span>Family owned &amp; operated</span></div>
+      <div><b>4 Generations</b><span>Of the Simmering family</span></div>
+      <div><b>Free Pick-up</b><span>&amp; delivery for large items within city limits</span></div>
+      <div><b>Your Fabric</b><span>Or ours, from major suppliers' sample libraries</span></div>
+    </div>
+  </div>
+</div>
+
+<section class="about" id="about">
+  <div class="wrap grid">
+    <div class="about-photo rv">
+      <div class="frame"><img src="images/about.jpg" alt="Dining chairs reupholstered by Simmering Upholstery"></div>
+      <div class="swatch"><b>4th</b><span>generation craftsmanship</span></div>
+    </div>
+    <div class="about-text rv">
+      <span class="tag">About Us</span>
+      <h2>Simmering's has been <span>family owned</span> and operated since 1934</h2>
+      <p class="first">We are a family-owned upholstery business dedicated to delivering high-quality craftsmanship and personalized service.</p>
+      <p>With years of experience, we specialize in restoring and reupholstering furniture to its original beauty, blending classic techniques with contemporary styles.</p>
+      <p>Proudly serving the local community, we strive to build lasting relationships with our customers, one piece at a time.</p>
+      <div class="sign">
+        <div><b>1902 10 Ave SW</b><span>Calgary, AB T3C 0J8</span></div>
+        <div><b>(403) 244-4656</b><span>Call or e-mail for a quote</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="sv-head rv">
+      <div>
+        <span class="tag">Our Services</span>
+        <h2>Four crafts, one workshop on 10th Avenue</h2>
+      </div>
+      <p>From a single cushion to a full living room set, every piece is handled by our own team in Calgary.</p>
+    </div>
+    <div class="sv-list">
+      <div class="sv rv">
+        <span class="num">No. 01</span>
+        <h3>Reupholstery</h3>
+        <p>Designed with you around the details and finishes you choose. We can work from your own design or a photograph, in leather or fabric from major suppliers' sample libraries. Special requests are welcome.</p>
+        <div class="pic"><img src="images/portfolio-6.jpg" alt="Reupholstered blue wingback chair"></div>
+      </div>
+      <div class="sv rv">
+        <span class="num">No. 02</span>
+        <h3>Cleaning</h3>
+        <p>We have a reputation for restoring and cleaning the most delicate fabrics such as tapestries and needlepoint.</p>
+        <div class="pic"><img src="images/portfolio-9.jpg" alt="Antique fainting couch with delicate patterned fabric"></div>
+      </div>
+      <div class="sv rv">
+        <span class="num">No. 03</span>
+        <h3>Repair</h3>
+        <p>We offer a range of repair services, including but not limited to fixing legs, frames, and springs.</p>
+        <div class="pic"><img src="images/portfolio-3.jpg" alt="Restored wood-frame leather armchairs"></div>
+      </div>
+      <div class="sv rv">
+        <span class="num">No. 04</span>
+        <h3>Scotchgard</h3>
+        <p>A spray that is applied to furniture and fabric to protect it from water and stains.</p>
+        <div class="pic"><img src="images/portfolio-2.jpg" alt="Purple sofa protected with Scotchgard"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="work" id="portfolio">
+  <div class="wrap">
+    <div class="work-head rv">
+      <div>
+        <span class="tag">Portfolio</span>
+        <h2>Recent pieces from the shop</h2>
+      </div>
+      <a href="#quote" class="btn btn-ink">Start your project</a>
+    </div>
+    <div class="gallery rv" id="gallery">
+      <figure class="g g1"><img src="images/portfolio-1.jpg" alt="Light sofa and loveseat in an open living room"><figcaption>Sofa &amp; loveseat</figcaption></figure>
+      <figure class="g g2"><img src="images/portfolio-7.jpg" alt="Leather tub chair and tufted sofa in a Calgary living room"><figcaption>Living room set</figcaption></figure>
+      <figure class="g g3"><img src="images/portfolio-8.jpg" alt="Pair of tan leather club chairs"><figcaption>Leather club chairs</figcaption></figure>
+      <figure class="g g4"><img src="images/portfolio-6.jpg" alt="Blue wingback chair with striped back"><figcaption>Wingback chair</figcaption></figure>
+      <figure class="g g5"><img src="images/portfolio-5.jpg" alt="Pair of leather swivel chairs"><figcaption>Swivel chairs</figcaption></figure>
+      <figure class="g g6"><img src="images/portfolio-3.jpg" alt="Wood frame leather armchairs"><figcaption>Frame &amp; leather</figcaption></figure>
+      <figure class="g g7"><img src="images/portfolio-4.jpg" alt="Blue tufted sofa in the Simmering workshop"><figcaption>Tufted sofa</figcaption></figure>
+      <figure class="g g8"><img src="images/portfolio-9.jpg" alt="Antique fainting couch in marbled fabric"><figcaption>Antique fainting couch</figcaption></figure>
+      <figure class="g g9"><img src="images/portfolio-2.jpg" alt="Purple velvet sofa with nailhead trim"><figcaption>Velvet sofa</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<div class="lb" id="lb">
+  <button class="x" aria-label="Close">&times;</button>
+  <button class="pv" aria-label="Previous">&#8249;</button>
+  <img src="" alt="">
+  <button class="nx" aria-label="Next">&#8250;</button>
+</div>
+
+<section class="why">
+  <div class="wrap">
+    <div class="rv">
+      <span class="tag">Why Us</span>
+      <h2>Why Calgary keeps coming back</h2>
+    </div>
+    <div class="why-cols rv">
+      <div><span class="n">01</span><h3>Family Business</h3><p>Simmering Upholstery has been family owned and operated for four generations.</p></div>
+      <div><span class="n">02</span><h3>Excellence and Care</h3><p>We strive for high quality and care, so our customers keep coming back to us.</p></div>
+      <div><span class="n">03</span><h3>Pick up and Delivery</h3><p>In Calgary and surrounding areas. Send us your address for a quote.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="quote">
+  <div class="wrap grid">
+    <div class="rv">
+      <span class="tag">Getting Started</span>
+      <h2>Three easy steps to a like-new piece</h2>
+      <p class="intro">Send us a few photos and we'll take it from there. You can use the form, or e-mail us directly.</p>
+      <div class="steps">
+        <div class="step"><span class="dot">1</span><div><h3>Send Us Photos</h3><p>Include rough dimensions of the furniture you would like to get recovered or repaired, and e-mail them to <a href="mailto:info@simmeringupholstery.ca">info@simmeringupholstery.ca</a>.</p></div></div>
+        <div class="step"><span class="dot">2</span><div><h3>We'll Reply</h3><p>We will get back to you with a yardage estimate, pricing, and timeline information specific to your project.</p></div></div>
+        <div class="step"><span class="dot">3</span><div><h3>Book Appointment</h3><p>Schedule an appointment with one of our sales representatives to select a material and finalize the details so your order can be placed.</p></div></div>
+      </div>
+    </div>
+    <form class="ticket rv" id="qform">
+      <div class="th"><h3>Request a Quote</h3><span>WORK ORDER</span></div>
+      <div class="fgrid">
+        <div><label for="fn">Your name</label><input id="fn" required></div>
+        <div><label for="fp">Phone</label><input id="fp" type="tel"></div>
+        <div class="full"><label for="fe">Email</label><input id="fe" type="email" required></div>
+        <div><label for="fs">Service</label>
+          <select id="fs"><option>Reupholstery</option><option>Cleaning</option><option>Repair</option><option>Scotchgard</option></select></div>
+        <div><label for="fd">Rough dimensions</label><input id="fd" placeholder="e.g. 84&quot; W x 36&quot; D"></div>
+        <div class="full"><label for="fm">Tell us about your piece</label><textarea id="fm"></textarea></div>
+        <div class="full"><label class="upload">Attach photos of your furniture<input type="file" accept="image/*" multiple id="ff"><br><span id="fcount" style="font-size:13px"></span></label></div>
+      </div>
+      <button class="btn btn-ink" type="submit">Send my request <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <small>Opens your e-mail app addressed to info@simmeringupholstery.ca. Please attach your photos there.</small>
+    </form>
+  </div>
+</section>
+
+<section class="voices">
+  <div class="wrap">
+    <div class="quote-big rv">
+      <span class="tag">Testimonials</span>
+      <span class="mark">&ldquo;</span>
+      <blockquote id="qtext">Bob did an amazing job when he restored an examination chair for my office.</blockquote>
+      <div class="who" id="qwho"><img src="images/testimonials-1.png" alt=""><div><b>Yogi P</b><span>Calgary Resident</span></div></div>
+    </div>
+    <ul class="people rv" id="people">
+      <li class="on" data-q="Bob did an amazing job when he restored an examination chair for my office."><img src="images/testimonials-1.png" alt=""><div><b>Yogi P</b><span>Calgary Resident</span></div><span class="ar">&rarr;</span></li>
+      <li data-q="They did a miracle job with my Indian sofa. Great team!"><img src="images/testimonials-2.png" alt=""><div><b>Arti Sutariya</b><span>Calgary Resident</span></div><span class="ar">&rarr;</span></li>
+      <li data-q="The cushion looks better than ever and didn't smell like chemicals!"><img src="images/testimonials-3.png" alt=""><div><b>Haley Blake</b><span>Calgary Resident / Dog Owner</span></div><span class="ar">&rarr;</span></li>
+      <li data-q="The craftsmanship and care shown by employees would be difficult to match anywhere."><img src="images/testimonials-4.png" alt=""><div><b>Chuck Buckley</b><span>Google Reviewer</span></div><span class="ar">&rarr;</span></li>
+      <li data-q="The stitch work is better than the original."><img src="images/testimonials-5.png" alt=""><div><b>Jenny Malcolm</b><span>Entrepreneur</span></div><span class="ar">&rarr;</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap">
+    <div class="side rv">
+      <span class="tag">FAQ</span>
+      <h2>Good questions, honest answers</h2>
+      <p>Still wondering about something? Give us a call at <a href="tel:+14032444656"><b>(403) 244-4656</b></a> or e-mail us.</p>
+      <div class="faq-photo"><img src="images/portfolio-5.jpg" alt="Leather swivel chairs"></div>
+    </div>
+    <div class="rv" id="faq">
+      <div class="qa open"><button>Why reupholster rather than buy a new piece of furniture?<i>+</i></button><div class="a"><p>Older furniture is usually built with sturdier frames and lasts longer than many newer pieces. Refreshing it with new fabric and foam is often the better choice.</p></div></div>
+      <div class="qa"><button>Do I need to purchase fabric through Simmering Upholstery?<i>+</i></button><div class="a"><p>No. We carry a wide selection of fabrics, but you are welcome to bring your own. We will measure the yardage needed before we start.</p></div></div>
+      <div class="qa"><button>Do you do automotive reupholstery?<i>+</i></button><div class="a"><p>No, we do not do automotive work. Boat cushions are sometimes possible, depending on the job.</p></div></div>
+      <div class="qa"><button>What is upholstery?<i>+</i></button><div class="a"><p>Upholstery is the art or practice of covering furniture in a padded or soft covering.</p></div></div>
+      <div class="qa"><button>Do I need to bring my furniture to the shop, or is there a delivery service?<i>+</i></button><div class="a"><p>Pick-up and delivery is free for large frames and sets within city limits. Smaller items, or jobs outside Calgary, require a quote.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="contact">
+  <div class="wrap grid">
+    <div class="visit-info rv">
+      <span class="tag">Contact Us</span>
+      <h2>Visit the shop</h2>
+      <div class="vrow"><span>Address</span><p>1902 10 Ave SW<br>Calgary, AB T3C 0J8</p></div>
+      <div class="vrow"><span>Phone</span><a href="tel:+14032444656">+1 (403) 244-4656</a></div>
+      <div class="vrow"><span>Email</span><a href="mailto:info@simmeringupholstery.ca">info@simmeringupholstery.ca</a></div>
+      <a href="https://www.google.com/maps/search/?api=1&query=1902+10+Ave+SW+Calgary+AB+T3C+0J8" target="_blank" rel="noopener" class="btn btn-gold">Get directions</a>
+    </div>
+    <div class="map">
+      <iframe title="Simmering Upholstery location" loading="lazy" src="https://maps.google.com/maps?q=1902%2010%20Ave%20SW%2C%20Calgary%2C%20AB%20T3C%200J8&z=15&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div>
+        <img src="images/logo2.png" alt="Simmering Upholstery">
+        <p>Custom upholstery, cleaning and repairs. Family owned and operated in Calgary since 1934.</p>
+        <div class="social">
+          <a href="https://www.facebook.com/Simmering-Upholstery-101963151974931/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9V7c0-.9.6-1 1-1h3V2h-4c-3.3 0-4 2.4-4 4v3H7v4h3v9h4v-9h3.5l.5-4z"/></svg></a>
+          <a href="https://www.instagram.com/simmering_upholstery/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+      <div><h4>Explore</h4><ul><li><a href="#home">Home</a></li><li><a href="#about">About Us</a></li><li><a href="#services">Services</a></li><li><a href="#portfolio">Portfolio</a></li><li><a href="#contact">Contact Us</a></li></ul></div>
+      <div><h4>Services</h4><ul><li><a href="#services">Reupholstery</a></li><li><a href="#services">Cleaning</a></li><li><a href="#services">Repair</a></li><li><a href="#services">Scotchgard</a></li></ul></div>
+      <div><h4>Get in touch</h4><ul><li>1902 10 Ave SW<br>Calgary, AB T3C 0J8</li><li><a href="tel:+14032444656">+1 (403) 244-4656</a></li><li><a href="mailto:info@simmeringupholstery.ca">info@simmeringupholstery.ca</a></li></ul></div>
+    </div>
+    <div class="fb">
+      <span>&copy; <span id="yr"></span> Simmering Upholstery Ltd. All rights reserved.</span>
+      <span><a href="https://cleaningdigital.ca/" target="_blank" rel="noopener">Design by Cleaning Digital</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="mbar"><a href="tel:+14032444656">Call now</a><a href="#quote">Get a quote</a></div>
+
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+// nav close on click + active state
+document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nav').classList.remove('open')));
+const secs=['home','about','services','portfolio','contact'].map(id=>document.getElementById(id));
+addEventListener('scroll',()=>{let cur='home';secs.forEach(s=>{if(s.getBoundingClientRect().top<160)cur=s.id});document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+cur))},{passive:true});
+// lightbox
+const imgs=[...document.querySelectorAll('#gallery img')],lb=document.getElementById('lb'),lbi=lb.querySelector('img');let li=0;
+const show=i=>{li=(i+imgs.length)%imgs.length;lbi.src=imgs[li].src;lbi.alt=imgs[li].alt;lb.classList.add('open')};
+imgs.forEach((im,i)=>im.parentElement.addEventListener('click',()=>show(i)));
+lb.querySelector('.x').onclick=()=>lb.classList.remove('open');
+lb.querySelector('.pv').onclick=e=>{e.stopPropagation();show(li-1)};
+lb.querySelector('.nx').onclick=e=>{e.stopPropagation();show(li+1)};
+lb.addEventListener('click',e=>{if(e.target===lb)lb.classList.remove('open')});
+addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')lb.classList.remove('open');if(e.key==='ArrowLeft')show(li-1);if(e.key==='ArrowRight')show(li+1)});
+// testimonials
+const qt=document.getElementById('qtext'),qw=document.getElementById('qwho'),ppl=[...document.querySelectorAll('#people li')];let ti=0,timer;
+function pick(i){ti=i;ppl.forEach(p=>p.classList.remove('on'));const p=ppl[i];p.classList.add('on');qt.style.opacity=qw.style.opacity=0;
+  setTimeout(()=>{qt.textContent=p.dataset.q;qw.querySelector('img').src=p.querySelector('img').src;qw.querySelector('b').textContent=p.querySelector('b').textContent;qw.querySelector('span').textContent=p.querySelector('div span').textContent;qt.style.opacity=qw.style.opacity=1},300)}
+const auto=()=>{clearInterval(timer);timer=setInterval(()=>pick((ti+1)%ppl.length),6000)};
+ppl.forEach((p,i)=>p.addEventListener('click',()=>{pick(i);auto()}));auto();
+// faq
+document.querySelectorAll('.qa').forEach(q=>{const a=q.querySelector('.a');if(q.classList.contains('open'))a.style.maxHeight=a.scrollHeight+'px';
+  q.querySelector('button').addEventListener('click',()=>{const o=q.classList.toggle('open');a.style.maxHeight=o?a.scrollHeight+'px':0})});
+// form -> email
+document.getElementById('ff').addEventListener('change',e=>{document.getElementById('fcount').textContent=e.target.files.length?e.target.files.length+' photo(s) selected':''});
+document.getElementById('qform').addEventListener('submit',e=>{e.preventDefault();const v=id=>document.getElementById(id).value;
+  const body=`Name: ${v('fn')}\nPhone: ${v('fp')}\nEmail: ${v('fe')}\nService: ${v('fs')}\nRough dimensions: ${v('fd')}\n\n${v('fm')}\n\n(Photos attached)`;
+  location.href=`mailto:info@simmeringupholstery.ca?subject=${encodeURIComponent('Quote request: '+v('fs'))}&body=${encodeURIComponent(body)}`});
+</script>
+</body>
+</html>
